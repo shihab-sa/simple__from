@@ -38,7 +38,7 @@ h2{
 }
 
 .form__control input{
-    border: 2px solid wheat;
+    border: 2px solid white;
     border-radius: 4px;
     display: block;
     width: 100%;
@@ -49,4 +49,36 @@ h2{
 .form__control input:focus{
     outline: 0;
     border-color: #fff;
+}
+
+.form__control.success input{
+    border-color:green;
+}
+
+.form__control.error input{
+    border-color: red;
+}
+
+.form__control .error small{
+    visibility: visible;
+}
+.form__control small{
+    color: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+form button{
+    cursor: pointer;
+    background-color: #3498bd;
+    border: 2px solid #3498bd;
+    border-radius: 4px;
+    color: white;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
 }

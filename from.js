@@ -12,10 +12,31 @@ function showError(inpt,message){
 }
 
 
+function isValidEmail(email){
+    const re =
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+  return re
+}
+
+
 function showSuccess(inpt,message){
     const formControl = inpt.parentElement;
     formControl.className = "form__control success"
    
+
+}
+
+
+function showrequired(inputArry){
+    inputArry.forEach(function(input){
+        if(input.value.trim()==""){
+            showError(input,`${input.id} is wrong`)
+        }
+        else{
+            showSuccess(input)
+        }
+    })
 
 }
 
@@ -25,31 +46,7 @@ function showSuccess(inpt,message){
 
 forms.addEventListener("submit",function(e){
     e.preventDefault()
-    if(userName.value === ''){
-        showError(userName,'usename is required')
-    }
-    else{
-        showSuccess(userName)
-    }
+    
 
-    if(email.value === ''){
-        showError(email,'email is required')
-    }
-    else{
-        showSuccess(email)
-    }
-
-    if(mypassword.value === ''){
-        showError(mypassword,'usename is required')
-    }
-    else{
-        showSuccess(mypassword)
-    }
-
-    if(password2.value === ''){
-        showError(mypassword2,'usename is required')
-    }
-    else{
-        showSuccess(mypassword2)
-    }
+    showrequired([ userName,myemail,mypassword,mypassword2])
 })
